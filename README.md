@@ -28,8 +28,10 @@
 * SegmentID & Label: pandas 라이브러리를 통해 annotation에 있는 label값들과 SegmentID값들을 가져와 Segment csv파일을 생성  
 * Label에서 ;(세미콜론)이 있는 label의 경우 앞의 것을 따르도록 처리하였음
 * text: os, glob 함수를 이용하여 wav폴더 내 .txt파일의 text와 해당 파일명을 함께 text파일로 저장  
-* WAV:  
-* BIO:  
+* WAV: os, glob, shutil 함수를 이용하여 wav폴더 내 .wav파일을 새로운 폴더로 copy & paste함  
+* BIO: EDA와 ECG, Temp 세 가지의 감정 데이터를 사용하였음
+* 
+*
 
 ### Text
 * `dataframe['columns'].nunique()`과 `merged_data.drop_duplicates(subset=['Seg'], inplace=True)`를 통해 해당 열의 중복되는 샘플의 수를 카운트 하고 제거함 
@@ -44,9 +46,22 @@
 *  `max(len(review) for review in X_train`를 통해 텍스트의 최대 길이를 파악한 후 다른 텍스트들과 길이를 맞추기 위해 padding 작업을 진행함
 
 ### Wav
+* for 반복문을 통해 음성 데이터 폴더 내 wav파일을 librosa 라이브러리로 로드함 `audio, sr = librosa.load(files, sr=16000)`
+* `librosa.feature.mfcc()`을 통해 음성 데이터의 특징을 추출함
+  * sr: sampling rate로 defalut=22050Hz
+  * n_mfcc: return될 mfcc의 개수를 정해주는 파라미터, default=20
+  * n_fft: frame의 length를 결정하는 파라미터
+  * hop_length: defalut=10ms, hop_length의 길이만큼 옆으로 가면서 데이터를 읽음
+* `sklearn.preprocessing.scale()`을 통해 mfcc를 scaling 처리함
+* 음성 데이터의 길이가 다양하므로 padding처리를 통해 길이를 맞춤
+* `librosa.display.specshow()`를 통해 시각화하여 padding 처리된 음성 데이터를 시각화함
 
-
-### bio
+### Bio
+* EDA와 ECG, TEMP 세 가지 데이터에서 Segment ID가 존재하는 데이터만 추출하여 각각의 csv파일을 생성함
+* 각각의 Bio 데이터를 dataframe으로 읽고 segment ID를 기준으로 label 데이터와 함께 merge함
+* 다중분류를 하기 위해 Label 데이터를 one hot encoding 처리를 하여 category 형으로 생성함
+* `scaler.fit_transform(scaled_mean_BIO)`를 적용하여 각각의 EDA, ECG, TEMP 데이터를 0 ~ 1 사이의 값으로 정규화함
+* 
 
 
 ## Getting Started
