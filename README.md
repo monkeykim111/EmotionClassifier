@@ -11,7 +11,7 @@
 * google colab
 
 ## library
-모든 작업은 구글 코랩 환경에서 실행되었음 
+모든 작업은 구글 코랩 환경에서 실행되었음    
 추가적으로 설치한 라이브러리인 Mecab의 설치 코드는 Text_emotion_detector.ipynb 파일에 있음
 
 ## 파일 생성 코드가 실행이 되지않을 경우 필요한 파일들 설치하기
@@ -21,7 +21,7 @@ https://drive.google.com/file/d/1wdRKR-NTh-rGIYa-bn6uxwtJFZwQvb4F/view?usp=shari
 ### 학습 시 필요한 파일들 및 h5파일 (1.28GB)
 https://drive.google.com/file/d/1jVUqTa2g6xTTnYGznGQA_oBKGCIvR1G9/view?usp=sharing
 
-# Data Preprocessing
+# Data Preprocessing (KEMDy19)
 ### raw dataset에 대한 전처리
 * SegmentID & Label: pandas 라이브러리를 통해 annotation에 있는 label값들과 SegmentID값들을 가져와 df_all_label.csv파일을 생성  
 * Label에서 ;(세미콜론)이 있는 label의 경우 앞의 emotion을 추출하는 함수 정의
@@ -48,7 +48,7 @@ https://drive.google.com/file/d/1jVUqTa2g6xTTnYGznGQA_oBKGCIvR1G9/view?usp=shari
 * `smote.fit_resample()`을 통해 imbalance한 데이터를 증강
 * `train_test_split()`을 통해 train과 test데이터를 8:2의 비율로 분리
 
-### Wav
+### Wav emotion detector
 * for 반복문을 통해 음성 데이터 폴더 내 wav파일을 librosa 라이브러리로 로드함 `audio, sr = librosa.load(files, sr=16000)`
 * `librosa.feature.mfcc()`을 통해 음성 데이터의 특징을 추출함
   * sr: sampling rate로 defalut=22050Hz
@@ -63,18 +63,18 @@ https://drive.google.com/file/d/1jVUqTa2g6xTTnYGznGQA_oBKGCIvR1G9/view?usp=shari
 * `smote.fit_resample()`을 통해 imbalance한 데이터를 증강
 * `train_test_split()`을 통해 train과 test데이터를 8:2의 비율로 분리
 
-### Bio
+### Bio emotion detector
 * 각각의 데이터의 평균값을 구하기 위해 `dataframe.groupby('group_column')['value'].agg()`를 통해 평균값 추출
 * 각각의 데이터의 정규화 작업을 위해 `scaler.fit_transform(dataframe)`을 통해 정규화 처리
 * 다중분류를 하기 위해 Label 데이터를 one hot encoding 처리를 하여 category 형으로 생성함
 * `smote.fit_resample()`을 통해 imbalance한 데이터를 증강
 * `train_test_split()`을 통해 train과 test데이터를 8:2의 비율로 분리
 
-# Getting Started
+# Getting Started (colab에서 실행하는 것을 권장함)
 ### Preprocessing_data.ipynb 또는 Preprocessing_data.py 파일을 통해 전처리 작업 수행  
   * text 작업을 위해 Mecab 라이브러리를 설치해야 하는데, 코랩이 아닌 로컬에서 할 경우는 수동 설치를 해야 하는 번거로움이 있어 colab에서 작업하는 것을 권장함(Preprocessing_data.py 내 링크 존재)
   * 코랩 내에서 merged_seg_text.txt과 all_wavSeg.txt을 생성할 경우, text파일에 순서가 랜덤하게 담기는 이슈가 발생하기 때문에 해당 파일을 생성하려는 경우 해당 부분만은 로컬에서 실행시키기를 권장함
-  * preprocessing_data를 통해 생성된 모든 파일은 설치링크를 통해 다운로드 받을 수 있음
+  * preprocessing_data를 통해 생성된 모든 파일은 readme 상단의 설치링크를 통해 다운로드 받을 수 있음
 
 ### google colab을 통한 각각의 모델 train
 1. 각각의 모델 학습 및 .h5 저장
