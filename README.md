@@ -1,10 +1,6 @@
 # Multi modal EmotionClassifier
 
 ## Abstract
-프로젝트의 진행 및 플로우에 대한 간략한 요약 및 설명
-
-1. 코드 설명  
-사용하신 라이브러리 및/또는 데이터 분석 결과에 대한 내용 (별도로 필요한 라이브러리가 있을 경우 소스코드 내에 해당 라이브러리 설치하는 코드 기재)
 
 ## Environment
 * windows 운영체제
@@ -15,12 +11,54 @@
 추가적으로 설치한 라이브러리인 Mecab의 설치 코드는 Text_emotion_detector.ipynb 파일에 있음
 
 ## 파일 생성 코드가 실행이 되지않을 경우 필요한 파일들 설치하기
-### 전처리 시 생성된 데이터 별(text & bio & wav) 파일들 (4.16GB)
+### 전처리 시 생성된 데이터 별(text & bio & wav) 파일들 (4.16GB) (약 11분 소요)
 https://drive.google.com/file/d/1wdRKR-NTh-rGIYa-bn6uxwtJFZwQvb4F/view?usp=sharing
 
-### 학습 시 필요한 파일들 및 h5파일 (1.28GB)
+데이터별_전처리파일  
+ |__Bio 전처리 파일들   
+ |       |__Bio_data.zip (Segment ID만 존재하는 EDA & ECG & Temp 데이터셋)  
+ |       |__df_all_bio.csv  
+ |       |__df_all_EDA.csv  
+ |       |__df_all_label.csv  
+ |       |__merged_bio_text.csv  
+ |  
+ |__Text 전처리 파일들  
+ |       |__df_all_label.csv  
+ |       |__df_all_txt.csv  
+ |       |__df_label.csv  
+ |       |__merged_seg_text.txt  
+ |       
+ |  
+ |__Wav 전처리 파일들   
+           |__merged_wav_folder.zip (.wav 파일만 모아둔 wav 데이터셋)  
+           |__all_mfcc.npy  
+           |__all_wavSeg.txt  
+           |__allwav.csv  
+           |__df_all_label.csv  
+           |__needed_mfcc.npy (x_data)  
+           |__needed_mfcc_y.pkl (y_data)  
+ 
+ 
+### 학습 시 필요한 파일들 및 h5파일 (1.28GB) (약 3분 소요)
 https://drive.google.com/file/d/1jVUqTa2g6xTTnYGznGQA_oBKGCIvR1G9/view?usp=sharing
 
+학습시_필요파일_및_h5파일  
+ |__h5_models  
+ |       |__best_model_bio.h5  
+ |       |__best_model_txt.h5   
+ |       |__best_model_wav.h5  
+ |  
+ |__데이터 별 학습시 필요한 파일  
+           |__bio  
+           |     |__merged_bio_text.csv  
+           |  
+           |__text  
+           |     |__merged_bio_text.csv  
+           |  
+           |__wav  
+                 |__needed_mfcc.npy (x_data)  
+                 |__needed_mfcc_y.pkl (y_data)  
+  
 # Data Preprocessing (KEMDy19)
 ### raw dataset에 대한 전처리
 * SegmentID & Label: pandas 라이브러리를 통해 annotation에 있는 label값들과 SegmentID값들을 가져와 df_all_label.csv파일을 생성  
