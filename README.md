@@ -62,7 +62,7 @@
                  |__needed_mfcc_y.pkl (y_data)  
   
 # Data Preprocessing (KEMDy19)
-### raw dataset에 대한 전처리
+### Raw dataset에 대한 전처리
 * SegmentID & Label: pandas 라이브러리를 통해 annotation에 있는 label값들과 SegmentID값들을 가져와 df_all_label.csv파일을 생성  
 * Label에서 ;(세미콜론)이 있는 label의 경우 앞의 emotion을 추출
 * Text: os, glob 함수를 이용하여 wav폴더 내 .txt파일 내 text와 해당 파일명을 함께 merged_seg_text.txt파일을 생성     
@@ -70,7 +70,7 @@
 * BIO: EDA와 ECG, Temp 세 가지의 감정 데이터의 Segment ID가 있는 행을 추출하여 평균값을 낸 후 df_all_bio.csv파일로 병합  
 <hr/>  
 
-### Text emotion detector
+### Text
 * `dataframe['columns'].str.replace("[^ㄱ-ㅎㅏ-ㅣ가-힣 ]","")`과 `dataframe['columns'].replace('', np.nan, inplace=True)`을 통해 한글과 공백을 제외하고 모두 제거함
 * `dataframe['columns'].nunique()`과 `merged_data.drop_duplicates(subset=['Seg'], inplace=True)`를 통해 해당 열의 중복되는 샘플의 수를 카운트 하고 제거함 
 * `dataframe.isnull()`을 통해 null값을 확인
@@ -82,7 +82,7 @@
 * `train_test_split()`을 통해 train과 test데이터를 8:2의 비율로 분리
 <hr/>  
 
-### Wav emotion detector
+### Wav
 * for 반복문을 통해 음성 데이터 폴더 내 wav파일을 librosa 라이브러리로 로드함 `audio, sr = librosa.load(files, sr=16000)`
 * `librosa.feature.mfcc()`을 통해 음성 데이터의 특징을 추출함
   * sr: sampling rate로 defalut=22050Hz
@@ -97,7 +97,7 @@
 * `train_test_split()`을 통해 train과 test데이터를 8:2의 비율로 분리
 <hr/>  
 
-### Bio emotion detector
+### Bio
 * EDA & ECG & Temp raw 데이터셋에서 Segment ID만 존재하는 행만 추출함
 * 각각의 데이터의 평균값을 구하기 위해 `dataframe.groupby('group_column')['value'].agg()`를 통해 평균값 추출
 * 각각의 데이터의 정규화 작업을 위해 `scaler.fit_transform(dataframe)`을 통해 정규화 처리
