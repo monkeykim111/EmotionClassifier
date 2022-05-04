@@ -13,7 +13,7 @@
 추가적으로 설치한 라이브러리인 Mecab의 설치 코드는 Text_emotion_detector.ipynb 파일에 있음
 
 ## 파일 생성 코드가 실행이 되지않을 경우 필요한 파일들을 다운로드 받아 사용하기
-### 전처리 시 생성된 데이터(text & bio & wav)별 파일들 (4.16GB) (약 11분 소요)
+### 전처리 시 생성된 데이터(text & bio & wav)별 파일들 (4.16GB) (약 14분 소요)
 [데이터별 전처리파일 다운로드 링크](https://drive.google.com/file/d/1wdRKR-NTh-rGIYa-bn6uxwtJFZwQvb4F/view?usp=sharing)  
 폴더 구성  
 **데이터별_전처리파일**  
@@ -41,7 +41,7 @@
            |__needed_mfcc_y.pkl (y_data)  
  
  
-### 학습 시 필요한 파일들 및 pretrained_h5파일 (1.28GB) (약 3분 소요)
+### 학습 시 필요한 파일들 및 pretrained_h5파일 (1.28GB) (약 4분 소요)
 [학습시 필요파일 및 h5파일 다운로드 링크](https://drive.google.com/file/d/1jVUqTa2g6xTTnYGznGQA_oBKGCIvR1G9/view?usp=sharing)  
 폴더 구성  
 **학습시_필요파일_및_h5파일**  
