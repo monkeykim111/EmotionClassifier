@@ -141,7 +141,7 @@ drive.mount('/content/gdrive')
 * 학습에 필요한 파일 및 사전학습된 모델은 readme 상단의 *학습시 필요파일 및 h5파일 다운로드 링크*를 통해 다운로드 받을 수 있음
 2. **각각의 모델의 예측값을 Ensemble 모델에 활용하여  최종 성능 평가**
 
-* Ensemble_emotion.ipynb을 통해 ensemble 모델을 테스트할 수 있다.
+** Ensemble_emotion.ipynb을 통해 ensemble 모델을 테스트할 수 있다.
   * 각각의 모델(Text & Bio & Wav)의 h5파일 경로를 설정해 준 뒤 각 터미널을 실행시킨다.
   * 세 개의 모델의 predict값을 출력해준 뒤, ensemble 모델의 Soft voting을 거쳐 성능을 향상시킬 수 있다.
 
