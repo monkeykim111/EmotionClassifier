@@ -9,7 +9,7 @@
 * windows
 * google colab
 
-## library
+## ibrary
 필요한 라이브러리는 각 코랩 파일의 상단에 위치함   
 추가적으로 설치한 라이브러리인 Mecab의 설치 코드는 Text_emotion_detector.ipynb 파일에 있음
 
