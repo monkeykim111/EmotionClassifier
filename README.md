@@ -123,7 +123,8 @@ drive.mount('/content/gdrive')
 
 ### Preprocessing_data.ipynb 또는 Preprocessing_data.py 파일을 통해 전처리 작업 수행  
   * text 작업을 위해 Mecab 라이브러리를 설치해야 하는데, 코랩이 아닌 로컬에서 할 경우는 수동 설치를 해야 하는 번거로움이 있어 colab에서 작업하는 것을 권장함(Preprocessing_data.py 내 Mecab 설치 가이드 링크 존재)
-  * 코랩 내에서 merged_seg_text.txt과 all_wavSeg.txt을 생성할 경우, text파일에 순서가 랜덤하게 담기는 이슈가 발생하기 때문에 해당 파일을 생성하려는 경우 해당 부분만은 로컬에서 실행시키기를 권장함
+  * 코랩 내에서 merged_seg_text.txt과 all_wavSeg.txt을 생성할 경우, text파일에 순서가 랜덤하게 담기는 이슈가 발생하기 때문에 해당 파일을 생성하려는 경우 해당 부분만은 로컬에서 실행시키기를 권장함 또는 다운로드 링크를 통해 해당 파일을 다운로드 받은 후 이어서 터미널 작동하기
+  * bio preprocssing을 할 때는 KEMDy19의 raw data가 아닌 Segment ID만 존재하는 데이터셋인 Bio_data 폴더 내 data set으로 터미널을 실행하기
   * preprocessing_data를 통해 생성된 모든 파일은 readme 상단의 *데이터별 전처리파일 다운로드 링크*를 통해 다운로드 받을 수 있음
 <hr/>  
 
