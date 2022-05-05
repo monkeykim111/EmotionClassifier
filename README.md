@@ -3,7 +3,7 @@
 ## Introduction
 [2022 휴먼이해 인공지능 논문경진대회]에서 제공한 KEMDy19 멀티모달 데이터셋을 활용하여 인간의 감정을 인식하는 모델을 개발하였다. 활용한 데이터셋은 한국어 멀티모달 감정 데이터셋으로, 발화음성, 발화의 문맥적 의미, 바이오 데이터(EDA, ECG, Temp)와 발화자의 감정과의 연관성 분석을 위해 수집한 멀티모달 데이터셋이다. (Emotion Recognition in Multi-Domain Datasets. Sensors 2021, 21, 1579. https://doi.org/10.3390/s21051579)  
 감정은 단일 요소로 결정 되기보다는 복합적인 외부적 및 내부적 요인으로부터 영향을 받기 때문에 단일 신호에만 의존하지 않고 다양한 형태의 멀티 모달 신호를 사용하기로 하였다.
-개발 환경은 google drive와 google colab pro을 사용하였다.
+개발 환경은 google drive와 google colab pro을 사용하였다. 
 
 ## Environment
 * windows
@@ -106,6 +106,11 @@
 * `train_test_split()`을 통해 train과 test데이터를 8:2의 비율로 분리
 
 # 실행 방법(colab에서 실행)
+
+## 주의사항
+본 작업은 런타임 문제로 코랩 Pro 환경에서 실행 되었기 때문에 일반 코랩에서 실행 할 경우 런타임 문제가 발생 할 수 있음.  
+문제가 발생할 경우 readme 상단에 위치하는 파일을 모두 다운로드 받은 후 실행할 것을 권장함.
+
 ### 구글 코랩에 git clone
 1. 구글 코랩을 실행
 2. 코랩과 google drive를 mount하여 연동하기
